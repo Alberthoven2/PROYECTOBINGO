@@ -42,8 +42,16 @@ public class Bingo {
         this.hayBingo = b;
     }
     
+    protected boolean getBingo(){
+        return this.hayBingo;
+    }
+    
     protected void setLinea(boolean b){
         this.hayLinea = b;
+    }
+    
+    protected boolean getLinea(){
+        return this.hayLinea;
     }
     
     protected int sacaBola(){

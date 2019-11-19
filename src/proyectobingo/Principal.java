@@ -27,6 +27,8 @@ public class Principal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        setName("formPrincipal"); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -37,6 +39,8 @@ public class Principal extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
+
+        getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -11,28 +11,62 @@ package proyectobingo;
  */
 public class Carton {
     
-    private int [][] carton = new int[3][5];
+    private final int [][] carton = new int[3][5];
     private boolean bingo;
     private boolean linea;
+    private final int FILAS = 3;
+    private final int COLUMNAS = 5;
     
     public Carton(){
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 5; j++){
+        for(int i = 0; i < FILAS; i++){
+            for(int j = 0; j < COLUMNAS; j++){
                 this.carton[i][j] = -1;
             }
         }
     }
     
     protected boolean compruebaLinea(){
-        return true;
+        int contador;
+        for(int i = 0; i < FILAS; i++){
+            contador = 0;
+            for(int j = 0; j < COLUMNAS; j++){
+                if(this.carton[i][j] == - 1){
+                    contador++;
+                }
+            }
+            if(contador == 5){
+                return true;
+            }
+        }
+        return false;
     }
     
     protected boolean compruebaBingo(){
-        return true;
+        int contador = 0;
+        for(int i = 0; i < FILAS; i++){
+            for(int j = 0; j < COLUMNAS; j++){
+                if(this.carton[i][j] == - 1){
+                    contador++;
+                }
+            }
+        }
+        if(contador == 15){
+           return true;
+        }else{
+           return false;
+        }
     }
     
     protected boolean compruebaNumero(int num){
-        return true;
+        for(int i = 0; i < FILAS; i++){
+            for(int j = 0; j < COLUMNAS; j++){
+                if(this.carton[i][j] == num){
+                    this.carton[i][j] = - 1;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     protected boolean rellenaCarton(int n){
