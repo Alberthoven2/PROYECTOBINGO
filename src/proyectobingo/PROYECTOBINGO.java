@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  * @author alb19
  */
 public class PROYECTOBINGO extends Application {
-    
+    //Hola qué tal
     @Override
     public void start(Stage primaryStage) {
         Button btn = new Button();
