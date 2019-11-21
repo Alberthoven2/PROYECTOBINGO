@@ -5,7 +5,6 @@
  */
 package proyectobingo;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -17,7 +16,7 @@ public class Bingo {
     private boolean hayBingo;
     private boolean hayLinea;
     private boolean seEstaJugando;
-    protected ArrayList <Bola> bolas = new ArrayList<>();
+    protected Bola [] bolas = new Bola[100];
     protected final Random rd;
     
     public Bingo(){
@@ -26,7 +25,7 @@ public class Bingo {
         for(int i = 0; i < 100; i++){
             b.setNum(i + 1);
             b.setDisponible(true);
-            bolas.add(b);
+            bolas[i] = b;
         }
     }
     
@@ -56,20 +55,14 @@ public class Bingo {
     
     protected int sacaBola(){
         int bola;
-        boolean encontrada;
         do{
-            encontrada = false;
             bola = this.rd.nextInt(101);
-            for(int i = 0; i < bolas.size(); i++){
-                if(bolas.get(i).getNum() == bola){
-                    encontrada = true;
-                    bolas.get(i).setDisponible(false);
-                    bolas.remove(i);
-                    break;
-                }
+            
+            if(bolas[bola - 1].getNum() == bola && bolas[bola - 1].getDisponible()){
+                bolas[bola - 1].setDisponible(false);
+                return bola;
             }
-        }while(!encontrada);
-        return bola;
+        }while(true);
     }
     
     
